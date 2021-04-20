@@ -1,12 +1,17 @@
 const proxyURL = "https://cors-anywhere.herokuapp.com/";
 const rootURL = "http://zelda-api.apius.cc/api/";
 const arrTypes = ["Games","Staff","Characters","Monsters","Bosses","Dungeons","Places","Items"];
-document.getElementById("results").addEventListener("click",getGroup)
+
+document.getElementById("btnResults").addEventListener("click",getGroup)
+populateDropDown(arrTypes);
+
+function testbox(selectedGroup) {
+    alert(selectedGroup);
+}
 
 function getGroup(e) {
-    const selectedGroup = document.getElementById("type-dropdown").value;
-    console.log(selectedGroup);
-//    getResults(selectedGroup,"100").then(console.log)
+    const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
+    getResults(selectedGroup,"100").then(console.log);
 }
 
 function populateDropDown (arrTypes) {
@@ -17,7 +22,6 @@ function populateDropDown (arrTypes) {
         dropSelect.value = dropObj;
         dropContainer.append(dropSelect);
     });
-    console.log(dropContainer);
 }
 
 function getResults(type,limit) {
@@ -26,6 +30,3 @@ function getResults(type,limit) {
         .then(r => r.json())
         .then(r => r.data)
 }
-
-//getResults("games","100").then(console.log);
-populateDropDown(arrTypes);
