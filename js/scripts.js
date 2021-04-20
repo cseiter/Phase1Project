@@ -1,17 +1,27 @@
 const proxyURL = "https://cors-anywhere.herokuapp.com/";
 const rootURL = "http://zelda-api.apius.cc/api/";
 const arrTypes = ["Games","Staff","Characters","Monsters","Bosses","Dungeons","Places","Items"];
-
-document.getElementById("btnResults").addEventListener("click",getGroup)
-populateDropDown(arrTypes);
-
-function testbox(selectedGroup) {
-    alert(selectedGroup);
-}
-
-function getGroup(e) {
-    const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
-    getResults(selectedGroup,"100").then(console.log);
+const testResults = {
+    "success": true,
+    "count": 2,
+    "data": [
+        {
+            "appearances": [],
+            "_id": "5f6e9a9efee1a5347127ca47",
+            "games": [],
+            "name": "Hookshot",
+            "description": "Hookshots ,, also known as Hook Shots, are Items in...",
+            "__v": 0
+        },
+        {
+            "appearances": [],
+            "_id": "5f6e9a9efee1a5347127ca7d",
+            "games": [],
+            "name": "Nice Hookshot",
+            "description": "The Nice Hookshot is an item in A Link Between Worlds",
+            "__v": 0
+        }
+    ]
 }
 
 function populateDropDown (arrTypes) {
@@ -24,9 +34,19 @@ function populateDropDown (arrTypes) {
     });
 }
 
+populateDropDown(arrTypes);
+
+document.getElementById("btnResults").addEventListener("click",getGroup)
+
+function getGroup(e) {
+    const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
+    getResults(selectedGroup,"100").then(console.log);
+}
+
 function getResults(type,limit) {
     const builtURL = `${proxyURL}${rootURL}${type}?limit=${limit}`;
     return fetch(builtURL)
         .then(r => r.json())
         .then(r => r.data)
 }
+
