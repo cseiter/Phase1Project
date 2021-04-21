@@ -50,24 +50,13 @@ function getResults(type,limit) {
         .then(r => r.data)
 }
 
-{/* <table>
+/* <table>
             <thead>
                 <tr id="table-header">
                 </tr>
             </thead>
             <tbody id="table-results">
             </tbody>
-    </table> */}
+    </table> */
 
-function createResultsTable(testResults) {
-    const headerTitle = document.getElementById("table-header")
-    const resultsHeaders = Object.keys(testResults.data[0]);
-    resultsHeaders.forEach (searchHeaderObj => {
-        const th = document.createElement("th")
-        th.innerText = searchHeaderObj
-        headerTitle.appendChild(th);
-    });
-}
-
-console.log(Object.keys(testResults.data[0]));
-createResultsTable(testResults);
+    
