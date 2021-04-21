@@ -40,7 +40,7 @@ document.getElementById("btnResults").addEventListener("click",getGroup)
 
 function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
-    getResults(selectedGroup,"100").then(console.log);
+//    getResults(selectedGroup,"100").then(console.log);
 }
 
 function getResults(type,limit) {
@@ -50,3 +50,18 @@ function getResults(type,limit) {
         .then(r => r.data)
 }
 
+{/* <table>
+            <thead>
+                <tr id="table-header">
+                </tr>
+            </thead>
+            <tbody id="table-results">
+            </tbody>
+    </table> */}
+
+function createResultsTable(zeldaObj) {
+    const th = document.createElement("th");
+    
+}
+
+console.log(Object.keys(testResults.data[0]));
