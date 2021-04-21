@@ -96,14 +96,16 @@ function createGamesTableBody(itemObj) {
     return trBody;
 }
 
-function showTable (testItemGames) {
+function showTable(testArrayGames) {
     createGamesTableHeaders();
     createGamesTableBody(testItemGames);
     const TableHeaderContainer = document.getElementById("table-header");
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
-    const itemTable = createGamesTableBody(testItemGames);
-    tableBodyContainer.appendChild(itemTable);
+    testArrayGames.forEach(itemObj => {
+        const itemTable = createGamesTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
 }
 
-showTable(testItemGames);
+showTable(testArrayGames);
