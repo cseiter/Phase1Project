@@ -109,5 +109,3 @@ function showTable(testArrayGames) {
         tableBodyContainer.appendChild(itemTable);
     });
 }
-
-//showTable(testArrayGames);
