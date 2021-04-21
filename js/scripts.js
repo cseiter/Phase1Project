@@ -59,7 +59,9 @@ document.getElementById("btnResults").addEventListener("click",getGroup);
 
 function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
-    getResults(selectedGroup,100).then(console.log);
+    document.getElementById("table-header").innerText = ""
+    document.getElementById("table-results").innerText = ""
+    getResults(selectedGroup,100).then(showTable);
 }
 
 function getResults(type,limit) {
@@ -108,4 +110,4 @@ function showTable(testArrayGames) {
     });
 }
 
-showTable(testArrayGames);
+//showTable(testArrayGames);
