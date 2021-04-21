@@ -59,9 +59,15 @@ function getResults(type,limit) {
             </tbody>
     </table> */}
 
-function createResultsTable(zeldaObj) {
-    const th = document.createElement("th");
-    
+function createResultsTable(testResults) {
+    const headerTitle = document.getElementById("table-header")
+    const resultsHeaders = Object.keys(testResults.data[0]);
+    resultsHeaders.forEach (searchHeaderObj => {
+        const th = document.createElement("th")
+        th.innerText = searchHeaderObj
+        headerTitle.appendChild(th);
+    });
 }
 
 console.log(Object.keys(testResults.data[0]));
+createResultsTable(testResults);
