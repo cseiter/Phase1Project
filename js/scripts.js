@@ -105,8 +105,17 @@ function createGamesTableBody(itemObj) {
     return trBody;
 }
 
+function showTable (testItemGames) {
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    const itemTable = createGamesTableBody(testItemGames);
+    tableBodyContainer.appendChild(itemTable);
+}
+
 createGamesTableHeaders();
 createGamesTableBody(testItemGames);
 
 console.log(trHeader);
 console.log(trBody);
+showTable(testItemGames);
