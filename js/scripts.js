@@ -40,7 +40,7 @@ document.getElementById("btnResults").addEventListener("click",getGroup)
 
 function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
-//    getResults(selectedGroup,"100").then(console.log);
+    getResults(selectedGroup,100).then(console.log);
 }
 
 function getResults(type,limit) {
@@ -59,4 +59,14 @@ function getResults(type,limit) {
             </tbody>
     </table> */
 
-    
+function createGamesTable() {
+    const tableHeaders = ["name","released_date","publisher","developer","description"]
+    const headerRow = document.getElementById("table-header")
+    tableHeaders.forEach(headerObj => {
+        const th = document.createElement("th")
+        th.innerText = headerObj
+        headerRow.appendChild(th)
+    });
+}
+
+createGamesTable();
