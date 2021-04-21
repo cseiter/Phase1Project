@@ -69,15 +69,6 @@ function getResults(type,limit) {
         .then(r => r.data)
 }
 
-/* <table>
-            <thead i>
-                <tr id="table-header">
-                </tr>
-            </thead>
-            <tbody id="table-results">
-            </tbody>
-    </table> */
-
 function createGamesTableHeaders() {
     const gamesHeaders = ["name","released_date","publisher","developer","description"];
     trHeader = document.createElement("tr");
@@ -106,6 +97,8 @@ function createGamesTableBody(itemObj) {
 }
 
 function showTable (testItemGames) {
+    createGamesTableHeaders();
+    createGamesTableBody(testItemGames);
     const TableHeaderContainer = document.getElementById("table-header");
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
@@ -113,9 +106,4 @@ function showTable (testItemGames) {
     tableBodyContainer.appendChild(itemTable);
 }
 
-createGamesTableHeaders();
-createGamesTableBody(testItemGames);
-
-console.log(trHeader);
-console.log(trBody);
 showTable(testItemGames);
