@@ -1,26 +1,8 @@
 const proxyURL = "https://cors-anywhere.herokuapp.com/";
 const rootURL = "http://zelda-api.apius.cc/api/";
 const arrTypes = ["Games","Staff","Characters","Monsters","Bosses","Dungeons","Places","Items"];
-const testArray = [
-        {
-            "appearances": [],
-            "_id": "5f6e9a9efee1a5347127ca47",
-            "games": [],
-            "name": "Hookshot",
-            "description": "Hookshots ,, also known as Hook Shots, are Items in...",
-            "__v": 0
-        },
-        {
-            "appearances": [],
-            "_id": "5f6e9a9efee1a5347127ca7d",
-            "games": [],
-            "name": "Nice Hookshot",
-            "description": "The Nice Hookshot is an item in A Link Between Worlds",
-            "__v": 0
-        }
-]
 
-const testItem = {
+const testItemGames = {
     "_id": "5f6ce9d805615a85623ec2b7",
     "name": "The Legend of Zelda",
     "description": "The Legend of Zelda is the first...",
@@ -31,9 +13,9 @@ const testItem = {
 }
 
 function populateDropDown (arrTypes) {
-    dropContainer = document.getElementById("type-dropdown")
+    dropContainer = document.getElementById("type-dropdown");
     arrTypes.forEach (dropObj => {
-        const dropSelect = document.createElement("option")
+        const dropSelect = document.createElement("option");
         dropSelect.innerText = dropObj;
         dropSelect.value = dropObj;
         dropContainer.append(dropSelect);
@@ -42,7 +24,7 @@ function populateDropDown (arrTypes) {
 
 populateDropDown(arrTypes);
 
-document.getElementById("btnResults").addEventListener("click",getGroup)
+document.getElementById("btnResults").addEventListener("click",getGroup);
 
 function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
@@ -66,18 +48,18 @@ function getResults(type,limit) {
     </table> */
 
 function createGamesTableHeaders() {
-    const gamesHeaders = ["name","released_date","publisher","developer","description"]
+    const gamesHeaders = ["name","released_date","publisher","developer","description"];
     trHeader = document.createElement("tr");
     gamesHeaders.forEach(headerObj => {
-        const th = document.createElement("th")
-        th.innerText = headerObj
-        trHeader.append(th)
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
     });
-    console.log(trHeader);
+    return trHeader;
 }
 
 function createGamesTableBody(itemObj) {
-    const trBody = document.createElement("tr");
+    trBody = document.createElement("tr");
     const tdName = document.createElement("td");
     const tdDate = document.createElement("td");
     const tdPub = document.createElement("td");
@@ -89,9 +71,11 @@ function createGamesTableBody(itemObj) {
     tdDev.innerText = itemObj.developer;
     tdDesc.innerText = itemObj.description;
     trBody.append(tdName,tdDate,tdPub,tdDev,tdDesc);
-    console.log(trBody);
+    return trBody;
 }
 
-
 createGamesTableHeaders();
-createGamesTableBody(testItem);
+createGamesTableBody(testItemGames);
+
+console.log(trHeader);
+console.log(trBody);
