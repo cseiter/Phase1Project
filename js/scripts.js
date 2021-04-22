@@ -2,7 +2,7 @@ const proxyURL = "https://cors-anywhere.herokuapp.com/";
 const rootURL = "http://zelda-api.apius.cc/api/";
 const arrTypes = ["Games","Staff"];
 
-const testItemGames = {
+/* const testItemGames = {
     "_id": "5f6ce9d805615a85623ec2b7",
     "name": "The Legend of Zelda",
     "description": "The Legend of Zelda is the first...",
@@ -41,7 +41,7 @@ const testArrayGames = [
     "publisher":"Nintendo",
     "released_date":" May 14, 2001",
     "__v":0}
-]
+] */
 
 function populateDropDown (arrTypes) {
     dropContainer = document.getElementById("type-dropdown");
@@ -61,7 +61,12 @@ function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
     document.getElementById("table-header").innerText = ""
     document.getElementById("table-results").innerText = ""
-    getResults(selectedGroup,100).then(showStaffTable);
+    if(selectedGroup == "games") {
+        getResults(selectedGroup,100).then(showGamesTable);
+    }
+    else {
+        getResults(selectedGroup,100).then(showStaffTable);
+    };
 }
 
 function getResults(type,limit) {
@@ -119,25 +124,25 @@ function createStaffTableBody(itemObj) {
     return trBody;
 }
 
-function showGamesTable(testArrayGames) {
+function showGamesTable(ArrayGames) {
     createGamesTableHeaders();
-    createGamesTableBody(testItemGames);
+    createGamesTableBody(ArrayGames);
     const TableHeaderContainer = document.getElementById("table-header");
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
-    testArrayGames.forEach(itemObj => {
+    ArrayGames.forEach(itemObj => {
         const itemTable = createGamesTableBody(itemObj);
         tableBodyContainer.appendChild(itemTable);
     });
 }
 
-function showStaffTable(testArrayGames) {
+function showStaffTable(arrayStaff) {
     createStaffTableHeaders();
-    createStaffTableBody(testItemGames);
+    createStaffTableBody(arrayStaff);
     const TableHeaderContainer = document.getElementById("table-header");
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
-    testArrayGames.forEach(itemObj => {
+    arrayStaff.forEach(itemObj => {
         const itemTable = createGamesTableBody(itemObj);
         tableBodyContainer.appendChild(itemTable);
     });
