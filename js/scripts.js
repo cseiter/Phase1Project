@@ -1,6 +1,6 @@
 const proxyURL = "https://cors-anywhere.herokuapp.com/";
 const rootURL = "http://zelda-api.apius.cc/api/";
-const arrTypes = ["Games","Staff","Characters","Monsters","Bosses","Dungeons","Places","Items"];
+const arrTypes = ["Games","Staff"];
 
 const testItemGames = {
     "_id": "5f6ce9d805615a85623ec2b7",
