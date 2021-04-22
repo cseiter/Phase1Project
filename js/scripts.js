@@ -61,7 +61,7 @@ function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
     document.getElementById("table-header").innerText = ""
     document.getElementById("table-results").innerText = ""
-    getResults(selectedGroup,100).then(showGamesTable);
+    getResults(selectedGroup,100).then(showStaffTable);
 }
 
 function getResults(type,limit) {
@@ -75,6 +75,17 @@ function createGamesTableHeaders() {
     const gamesHeaders = ["name","released_date","publisher","developer","description"];
     trHeader = document.createElement("tr");
     gamesHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
+}
+
+function createStaffTableHeaders() {
+    const staffHeaders = ["name","worked_on"];
+    trHeader = document.createElement("tr");
+    staffHeaders.forEach(headerObj => {
         const th = document.createElement("th");
         th.innerText = headerObj;
         trHeader.append(th);
@@ -98,9 +109,31 @@ function createGamesTableBody(itemObj) {
     return trBody;
 }
 
+function createStaffTableBody(itemObj) {
+    trBody = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdWorked = document.createElement("td");
+    tdName.innerText = itemObj.name;
+    tdWorked.innerText = itemObj.worked_on;
+    trBody.append(tdName,tdWorked);
+    return trBody;
+}
+
 function showGamesTable(testArrayGames) {
     createGamesTableHeaders();
     createGamesTableBody(testItemGames);
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    testArrayGames.forEach(itemObj => {
+        const itemTable = createGamesTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
+}
+
+function showStaffTable(testArrayGames) {
+    createStaffTableHeaders();
+    createStaffTableBody(testItemGames);
     const TableHeaderContainer = document.getElementById("table-header");
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
