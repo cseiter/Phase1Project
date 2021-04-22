@@ -61,7 +61,7 @@ function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
     document.getElementById("table-header").innerText = ""
     document.getElementById("table-results").innerText = ""
-    getResults(selectedGroup,100).then(showTable);
+    getResults(selectedGroup,100).then(showGamesTable);
 }
 
 function getResults(type,limit) {
@@ -98,7 +98,7 @@ function createGamesTableBody(itemObj) {
     return trBody;
 }
 
-function showTable(testArrayGames) {
+function showGamesTable(testArrayGames) {
     createGamesTableHeaders();
     createGamesTableBody(testItemGames);
     const TableHeaderContainer = document.getElementById("table-header");
