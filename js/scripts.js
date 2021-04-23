@@ -72,7 +72,19 @@ function getGroup(e) {
     }
     else if (selectedGroup == "monsters") {
         getResults(selectedGroup,100).then(showMonstersTable);
-    } 
+    }
+    else if (selectedGroup == "bosses") {
+        getResults(selectedGroup,100).then(showBossesTable);
+    }
+    else if (selectedGroup == "dungeons") {
+        getResults(selectedGroup,100).then(showDungeonsTable);
+    }
+    else if (selectedGroup == "places") {
+        getResults(selectedGroup,100).then(showPlacesTable);
+    }
+    else if (selectedGroup == "items") {
+        getResults(selectedGroup,100).then(showItemsTable);
+    }
     else {console.log("no search")}
 }
 
@@ -189,7 +201,7 @@ function showStaffTable(arrayStaff) {
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
     arrayStaff.forEach(itemObj => {
-        const itemTable = createGamesTableBody(itemObj);
+        const itemTable = createStaffTableBody(itemObj);
         tableBodyContainer.appendChild(itemTable);
     });
 }
@@ -224,7 +236,153 @@ function showMonstersTable(arrayMonsters) {
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
     arrayMonsters.forEach(itemObj => {
-        const itemTable = createGamesTableBody(itemObj);
+        const itemTable = createMonstersTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
+}
+
+function createBossesTableHeaders() {
+    const bossesHeaders = ["name","appearances","dungeons","description"];
+    trHeader = document.createElement("tr");
+    bossesHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
+}
+
+function createBossesTableBody(itemObj) {
+    trBody = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdAppearances = document.createElement("td");
+    const tdDescription = document.createElement("td");
+    const tdDungeons = document.createElement("td");
+    tdName.innerText = itemObj.name;
+    tdAppearances.innerText = itemObj.appearances;
+    tdDungeons.innerText = itemObj.dungeons;
+    tdDescription.innerText = itemObj.description;
+    trBody.append(tdName,tdAppearances,tdDungeons,tdDescription);
+    return trBody;
+}
+
+function showBossesTable(arrayBosses) {
+    createBossesTableHeaders();
+    createBossesTableBody(arrayBosses);
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    arrayBosses.forEach(itemObj => {
+        const itemTable = createBossesTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
+}
+
+function createDungeonsTableHeaders() {
+    const DungeonsHeaders = ["name","appearances","description"];
+    trHeader = document.createElement("tr");
+    DungeonsHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
+}
+
+function createDungeonsTableBody(itemObj) {
+    trBody = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdAppearances = document.createElement("td");
+    const tdDescription = document.createElement("td");
+    tdName.innerText = itemObj.name;
+    tdAppearances.innerText = itemObj.appearances;
+    tdDescription.innerText = itemObj.description;
+    trBody.append(tdName,tdAppearances,tdDescription);
+    return trBody;
+}
+
+function showDungeonsTable(arrayDungeons) {
+    createDungeonsTableHeaders();
+    createDungeonsTableBody(arrayDungeons);
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    arrayDungeons.forEach(itemObj => {
+        const itemTable = createDungeonsTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
+}
+
+function createPlacesTableHeaders() {
+    const PlacesHeaders = ["name","appearances","inhabitants","description"];
+    trHeader = document.createElement("tr");
+    PlacesHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
+}
+
+function createPlacesTableBody(itemObj) {
+    trBody = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdAppearances = document.createElement("td");
+    const tdInhabitants = document.createElement("td");
+    const tdDescription = document.createElement("td");
+    tdName.innerText = itemObj.name;
+    tdAppearances.innerText = itemObj.appearances;
+    tdInhabitants.innerText = itemObj.inhabitants;
+    tdDescription.innerText = itemObj.description;
+    trBody.append(tdName,tdAppearances,tdInhabitants,tdDescription);
+    return trBody;
+}
+
+function showPlacesTable(arrayPlaces) {
+    createPlacesTableHeaders();
+    createPlacesTableBody(arrayPlaces);
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    arrayPlaces.forEach(itemObj => {
+        const itemTable = createPlacesTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
+}
+
+function createItemsTableHeaders() {
+    const ItemsHeaders = ["name","appearances","games","description"];
+    trHeader = document.createElement("tr");
+    ItemsHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
+}
+
+function createItemsTableBody(itemObj) {
+    trBody = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdAppearances = document.createElement("td");
+    const tdGames = document.createElement("td");
+    const tdDescription = document.createElement("td");
+    tdName.innerText = itemObj.name;
+    tdAppearances.innerText = itemObj.appearances;
+    tdGames.innerText = itemObj.games;
+    tdDescription.innerText = itemObj.description;
+    trBody.append(tdName,tdAppearances,tdGames,tdDescription);
+    return trBody;
+}
+
+function showItemsTable(arrayItems) {
+    createItemsTableHeaders();
+    createItemsTableBody(arrayItems);
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    arrayItems.forEach(itemObj => {
+        const itemTable = createItemsTableBody(itemObj);
         tableBodyContainer.appendChild(itemTable);
     });
 }
