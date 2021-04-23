@@ -120,13 +120,13 @@ function createCharactersTableBody(itemObj) {
     return trBody;
 }
 
-function showCharactersTable(ArrayGames) {
+function showCharactersTable(ArrayCharacters) {
     createCharactersTableHeaders();
-    createCharactersTableBody(ArrayGames);
+    createCharactersTableBody(ArrayCharacters);
     const TableHeaderContainer = document.getElementById("table-header");
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
-    ArrayGames.forEach(itemObj => {
+    ArrayCharacters.forEach(itemObj => {
         const itemTable = createCharactersTableBody(itemObj);
         tableBodyContainer.appendChild(itemTable);
     });
