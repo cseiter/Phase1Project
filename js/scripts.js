@@ -69,7 +69,10 @@ function getGroup(e) {
     }
     else if (selectedGroup == "staff") {
         getResults(selectedGroup,100).then(showStaffTable);
-    }    
+    }
+    else if (selectedGroup == "monsters") {
+        getResults(selectedGroup,100).then(showMonstersTable);
+    } 
     else {console.log("no search")}
 }
 
@@ -120,9 +123,9 @@ function showGamesTable(ArrayGames) {
 }
 
 function createCharactersTableHeaders() {
-    const gamesHeaders = ["name","appearances","gender","race","description"];
+    const charactersHeaders = ["name","appearances","gender","race","description"];
     trHeader = document.createElement("tr");
-    gamesHeaders.forEach(headerObj => {
+    charactersHeaders.forEach(headerObj => {
         const th = document.createElement("th");
         th.innerText = headerObj;
         trHeader.append(th);
@@ -186,6 +189,41 @@ function showStaffTable(arrayStaff) {
     TableHeaderContainer.appendChild(trHeader);
     const tableBodyContainer = document.getElementById("table-results");
     arrayStaff.forEach(itemObj => {
+        const itemTable = createGamesTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
+}
+
+function createMonstersTableHeaders() {
+    const monsterHeaders = ["name","appearances","description"];
+    trHeader = document.createElement("tr");
+    monsterHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
+}
+
+function createMonstersTableBody(itemObj) {
+    trBody = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdAppearances = document.createElement("td");
+    const tdDescription = document.createElement("td");
+    tdName.innerText = itemObj.name;
+    tdAppearances.innerText = itemObj.appearances;
+    tdDescription.innerText = itemObj.description;
+    trBody.append(tdName,tdAppearances,tdDescription);
+    return trBody;
+}
+
+function showMonstersTable(arrayMonsters) {
+    createMonstersTableHeaders();
+    createMonstersTableBody(arrayMonsters);
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    arrayMonsters.forEach(itemObj => {
         const itemTable = createGamesTableBody(itemObj);
         tableBodyContainer.appendChild(itemTable);
     });
