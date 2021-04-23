@@ -64,9 +64,13 @@ function getGroup(e) {
     if(selectedGroup == "games") {
         getResults(selectedGroup,100).then(showGamesTable);
     }
-    else {
+    else if (selectedGroup == "characters") {
+        getResults(selectedGroup,100).then(showCharactersTable);
+    }
+    else if (selectedGroup == "staff") {
         getResults(selectedGroup,100).then(showStaffTable);
-    };
+    }    
+    else {console.log("no search")}
 }
 
 function getResults(type,limit) {
@@ -78,6 +82,17 @@ function getResults(type,limit) {
 
 function createGamesTableHeaders() {
     const gamesHeaders = ["name","released_date","publisher","developer","description"];
+    trHeader = document.createElement("tr");
+    gamesHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
+}
+
+function createCharactersTableHeaders() {
+    const gamesHeaders = ["name","appearances","gender","race","description"];
     trHeader = document.createElement("tr");
     gamesHeaders.forEach(headerObj => {
         const th = document.createElement("th");
@@ -114,6 +129,22 @@ function createGamesTableBody(itemObj) {
     return trBody;
 }
 
+function createCharactersTableBody(itemObj) {
+    trBody = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdAppearances = document.createElement("td");
+    const tdGender = document.createElement("td");
+    const tdRace = document.createElement("td");
+    const tdDesc = document.createElement("td");
+    tdName.innerText = itemObj.name;
+    tdAppearances.innerText = itemObj.appearances;
+    tdGender.innerText = itemObj.gender;
+    tdRace.innerText = itemObj.race;
+    tdDesc.innerText = itemObj.description;
+    trBody.append(tdName,tdAppearances,tdGender,tdRace,tdDesc);
+    return trBody;
+}
+
 function createStaffTableBody(itemObj) {
     trBody = document.createElement("tr");
     const tdName = document.createElement("td");
@@ -135,6 +166,20 @@ function showGamesTable(ArrayGames) {
         tableBodyContainer.appendChild(itemTable);
     });
 }
+
+function showCharactersTable(ArrayGames) {
+    createCharactersTableHeaders();
+    createCharactersTableBody(ArrayGames);
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    ArrayGames.forEach(itemObj => {
+        const itemTable = createCharactersTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
+}
+
+
 
 function showStaffTable(arrayStaff) {
     createStaffTableHeaders();
