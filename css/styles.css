@@ -1,3 +1,10 @@
+table {
+    table-layout: auto;
+    white-space: nowrap;
+    border-collapse: collapse;
+    border: 2px solid black;
+}
+
 th {
     background-color: #355e3b;
     color: goldenrod;
@@ -7,3 +14,10 @@ th {
 
 tr:nth-child(even){background-color: lightgray;}
 
+td {
+    padding: 5px 5px 5px 5px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
