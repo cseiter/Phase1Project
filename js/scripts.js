@@ -91,28 +91,6 @@ function createGamesTableHeaders() {
     return trHeader;
 }
 
-function createCharactersTableHeaders() {
-    const gamesHeaders = ["name","appearances","gender","race","description"];
-    trHeader = document.createElement("tr");
-    gamesHeaders.forEach(headerObj => {
-        const th = document.createElement("th");
-        th.innerText = headerObj;
-        trHeader.append(th);
-    });
-    return trHeader;
-}
-
-function createStaffTableHeaders() {
-    const staffHeaders = ["name","worked_on"];
-    trHeader = document.createElement("tr");
-    staffHeaders.forEach(headerObj => {
-        const th = document.createElement("th");
-        th.innerText = headerObj;
-        trHeader.append(th);
-    });
-    return trHeader;
-}
-
 function createGamesTableBody(itemObj) {
     trBody = document.createElement("tr");
     const tdName = document.createElement("td");
@@ -127,6 +105,29 @@ function createGamesTableBody(itemObj) {
     tdDesc.innerText = itemObj.description;
     trBody.append(tdName,tdDate,tdPub,tdDev,tdDesc);
     return trBody;
+}
+
+function showGamesTable(ArrayGames) {
+    createGamesTableHeaders();
+    createGamesTableBody(ArrayGames);
+    const TableHeaderContainer = document.getElementById("table-header");
+    TableHeaderContainer.appendChild(trHeader);
+    const tableBodyContainer = document.getElementById("table-results");
+    ArrayGames.forEach(itemObj => {
+        const itemTable = createGamesTableBody(itemObj);
+        tableBodyContainer.appendChild(itemTable);
+    });
+}
+
+function createCharactersTableHeaders() {
+    const gamesHeaders = ["name","appearances","gender","race","description"];
+    trHeader = document.createElement("tr");
+    gamesHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
 }
 
 function createCharactersTableBody(itemObj) {
@@ -145,28 +146,6 @@ function createCharactersTableBody(itemObj) {
     return trBody;
 }
 
-function createStaffTableBody(itemObj) {
-    trBody = document.createElement("tr");
-    const tdName = document.createElement("td");
-    const tdWorked = document.createElement("td");
-    tdName.innerText = itemObj.name;
-    tdWorked.innerText = itemObj.worked_on;
-    trBody.append(tdName,tdWorked);
-    return trBody;
-}
-
-function showGamesTable(ArrayGames) {
-    createGamesTableHeaders();
-    createGamesTableBody(ArrayGames);
-    const TableHeaderContainer = document.getElementById("table-header");
-    TableHeaderContainer.appendChild(trHeader);
-    const tableBodyContainer = document.getElementById("table-results");
-    ArrayGames.forEach(itemObj => {
-        const itemTable = createGamesTableBody(itemObj);
-        tableBodyContainer.appendChild(itemTable);
-    });
-}
-
 function showCharactersTable(ArrayGames) {
     createCharactersTableHeaders();
     createCharactersTableBody(ArrayGames);
@@ -179,7 +158,26 @@ function showCharactersTable(ArrayGames) {
     });
 }
 
+function createStaffTableHeaders() {
+    const staffHeaders = ["name","worked_on"];
+    trHeader = document.createElement("tr");
+    staffHeaders.forEach(headerObj => {
+        const th = document.createElement("th");
+        th.innerText = headerObj;
+        trHeader.append(th);
+    });
+    return trHeader;
+}
 
+function createStaffTableBody(itemObj) {
+    trBody = document.createElement("tr");
+    const tdName = document.createElement("td");
+    const tdWorked = document.createElement("td");
+    tdName.innerText = itemObj.name;
+    tdWorked.innerText = itemObj.worked_on;
+    trBody.append(tdName,tdWorked);
+    return trBody;
+}
 
 function showStaffTable(arrayStaff) {
     createStaffTableHeaders();
