@@ -16,20 +16,23 @@ dropdown to include the rest of the search topics and display results.
 ---Stretch 2:
 "loading" gif while fetch is happening.
 
-Stretch 3:
+---Stretch 3:
 randomize loading gif.
 
 Stretch 4:
-change from dropdown list to icon bar, like the dogshow library.
+add error image on fetch fail.
 
 Stretch 5:
-table background image to go along with icon bar, but faded.
+change from dropdown list to icon bar, like the dogshow library.
 
 Stretch 6:
-combine each of the separate functions into one and dynamically create tables based on size of search results table.
+table background image to go along with icon bar, but faded.
 
 Stretch 7:
-replace unique key search results with appropriate names of games, places...
+combine each of the separate functions into one and dynamically create tables based on size of search results table.
 
 Stretch 8:
+replace unique key search results with appropriate names of games, places...
+
+Stretch 9:
 try to get count totals to start doing data mining and charts.
