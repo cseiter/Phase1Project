@@ -24,7 +24,13 @@ Stretch 4:
 randomize loading gif.
 
 Stretch 5:
-combine each of the separate functions into one and dynamically create tables based on size of search results table.
+table background image to go along with icon bar, but faded.
 
 Stretch 6:
+combine each of the separate functions into one and dynamically create tables based on size of search results table.
+
+Stretch 7:
+replace unique key search results with appropriate names of games, places...
+
+Stretch 8:
 try to get count totals to start doing data mining and charts.
