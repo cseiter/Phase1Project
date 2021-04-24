@@ -15,13 +15,13 @@ Stretch 1:
 dropdown to include the rest of the search topics and display results.
 
 Stretch 2:
-change from dropdown list to icon bar, like the dogshow library.
-
-Stretch 3:
 "loading" gif while fetch is happening.
 
-Stretch 4:
+Stretch 3:
 randomize loading gif.
+
+Stretch 4:
+change from dropdown list to icon bar, like the dogshow library.
 
 Stretch 5:
 table background image to go along with icon bar, but faded.
