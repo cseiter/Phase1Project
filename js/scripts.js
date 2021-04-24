@@ -19,7 +19,8 @@ document.getElementById("btnResults").addEventListener("click",getGroup);
 function displayLoading() {
     const loaderDiv = document.getElementById("loading");
     const loadingGif = document.getElementById("loading-gif");
-    loadingGif.src = "./images/link_walking_render.gif"
+    imgPicker = Math.floor((Math.random() * 6) + 1);
+    loadingGif.src = `./images/${imgPicker}.gif`
     loaderDiv.style.display = "block";
 
 }
