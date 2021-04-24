@@ -7,14 +7,13 @@ Some interactivity is required. This could be as simple as adding a "like" butto
 
 Your project's DOM Manipulation should be well structured, following the pattern of creating reusable components and appending them to the DOM.
 
-MVP:
-
+---MVP:
 single topic search results with a button to show results.  CSS adds borders to table elements.
 
-Stretch 1:
+---Stretch 1:
 dropdown to include the rest of the search topics and display results.
 
-Stretch 2:
+---Stretch 2:
 "loading" gif while fetch is happening.
 
 Stretch 3:
