@@ -21,3 +21,12 @@ td {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
 }
+
+#loading {
+    width: 90%;
+    height:90%;
+    padding-top: 5%;
+    text-align: center;
+    margin: auto;
+    display: none;
+}

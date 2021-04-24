@@ -16,6 +16,19 @@ populateDropDown(arrTypes);
 
 document.getElementById("btnResults").addEventListener("click",getGroup);
 
+function displayLoading() {
+    const loaderDiv = document.getElementById("loading");
+    const loadingGif = document.getElementById("loading-gif");
+    loadingGif.src = "./images/link_walking_render.gif"
+    loaderDiv.style.display = "block";
+
+}
+
+function hideLoading() {
+    const loaderDiv = document.getElementById("loading");
+    loaderDiv.style.display = "none";
+}
+
 function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
     document.getElementById("table-header").innerText = ""
@@ -49,6 +62,7 @@ function getGroup(e) {
 
 function getResults(type,limit) {
     const builtURL = `${proxyURL}${rootURL}${type}?limit=${limit}`;
+    displayLoading();
     return fetch(builtURL)
         .then(r => r.json())
         .then(r => r.data)
@@ -82,6 +96,7 @@ function createGamesTableBody(itemObj) {
 }
 
 function showGamesTable(ArrayGames) {
+    hideLoading();
     createGamesTableHeaders();
     createGamesTableBody(ArrayGames);
     const TableHeaderContainer = document.getElementById("table-header");
