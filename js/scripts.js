@@ -136,6 +136,7 @@ function createCharactersTableBody(itemObj) {
 }
 
 function showCharactersTable(ArrayCharacters) {
+    hideLoading();
     createCharactersTableHeaders();
     createCharactersTableBody(ArrayCharacters);
     const TableHeaderContainer = document.getElementById("table-header");
@@ -169,6 +170,7 @@ function createStaffTableBody(itemObj) {
 }
 
 function showStaffTable(arrayStaff) {
+    hideLoading();
     createStaffTableHeaders();
     createStaffTableBody(arrayStaff);
     const TableHeaderContainer = document.getElementById("table-header");
@@ -204,6 +206,7 @@ function createMonstersTableBody(itemObj) {
 }
 
 function showMonstersTable(arrayMonsters) {
+    hideLoading();
     createMonstersTableHeaders();
     createMonstersTableBody(arrayMonsters);
     const TableHeaderContainer = document.getElementById("table-header");
@@ -241,6 +244,7 @@ function createBossesTableBody(itemObj) {
 }
 
 function showBossesTable(arrayBosses) {
+    hideLoading();
     createBossesTableHeaders();
     createBossesTableBody(arrayBosses);
     const TableHeaderContainer = document.getElementById("table-header");
@@ -276,6 +280,7 @@ function createDungeonsTableBody(itemObj) {
 }
 
 function showDungeonsTable(arrayDungeons) {
+    hideLoading();
     createDungeonsTableHeaders();
     createDungeonsTableBody(arrayDungeons);
     const TableHeaderContainer = document.getElementById("table-header");
@@ -313,6 +318,7 @@ function createPlacesTableBody(itemObj) {
 }
 
 function showPlacesTable(arrayPlaces) {
+    hideLoading();
     createPlacesTableHeaders();
     createPlacesTableBody(arrayPlaces);
     const TableHeaderContainer = document.getElementById("table-header");
@@ -350,6 +356,7 @@ function createItemsTableBody(itemObj) {
 }
 
 function showItemsTable(arrayItems) {
+    hideLoading();
     createItemsTableHeaders();
     createItemsTableBody(arrayItems);
     const TableHeaderContainer = document.getElementById("table-header");
