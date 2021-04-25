@@ -26,6 +26,7 @@ td.oneLine {
 
 #returnedresults {
     width: 99%;
+    padding: 10px;
 }
 
 #loading {
