@@ -19,7 +19,7 @@ dropdown to include the rest of the search topics and display results.
 ---Stretch 3:
 randomize loading gif.
 
-Stretch 4:
+---Stretch 4:
 add error image on fetch fail.
 
 Stretch 5:
