@@ -34,6 +34,7 @@ function showError() {
     const loadingGif = document.getElementById("loading-gif");
     loaderDiv.innerHTML = "<h3>I'm sorry, something went wrong.  Please try again.</h3><br><img src=./images/Error.png>"
     loaderDiv.style.display = "block";
+    enableButton();
 }
 
 function enableButton() {
@@ -74,11 +75,20 @@ function getGroup(e) {
     else {console.log("no search")}
 }
 
+/*error solve found here:
+https://stackoverflow.com/questions/52732194/why-is-my-javascript-fetch-not-able-to-get-the-error-object
+*/
 function getResults(type,limit) {
     document.getElementById("btnResults").disabled = true;
     const builtURL = `${proxyURL}${rootURL}${type}?limit=${limit}`;
     displayLoading();
     return fetch(builtURL)
+        .then (r => {
+            if(!r.ok){
+                showError();
+            }
+            return r;
+        })
         .then(r => r.json())
         .then(r => r.data)
 }
