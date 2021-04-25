@@ -95,9 +95,13 @@ function createGamesTableBody(itemObj) {
     const tdDev = document.createElement("td");
     const tdDesc = document.createElement("td");
     tdName.innerText = itemObj.name;
+    tdName.className = "oneLine";
     tdDate.innerText = itemObj.released_date;
+    tdDate.className = "oneLine";
     tdPub.innerText = itemObj.publisher;
+    tdPub.className = "oneLine";
     tdDev.innerText = itemObj.developer;
+    tdDev.className = "oneLine";
     tdDesc.innerText = itemObj.description;
     trBody.append(tdName,tdDate,tdPub,tdDev,tdDesc);
     return trBody;
@@ -135,9 +139,12 @@ function createCharactersTableBody(itemObj) {
     const tdRace = document.createElement("td");
     const tdDesc = document.createElement("td");
     tdName.innerText = itemObj.name;
+    tdName.className = "oneLine";
     tdAppearances.innerText = itemObj.appearances;
     tdGender.innerText = itemObj.gender;
+    tdGender.className = "oneLine";
     tdRace.innerText = itemObj.race;
+    tdRace.className = "oneLine";
     tdDesc.innerText = itemObj.description;
     trBody.append(tdName,tdAppearances,tdGender,tdRace,tdDesc);
     return trBody;
@@ -172,6 +179,7 @@ function createStaffTableBody(itemObj) {
     const tdName = document.createElement("td");
     const tdWorked = document.createElement("td");
     tdName.innerText = itemObj.name;
+    tdName.className = "oneLine";
     tdWorked.innerText = itemObj.worked_on;
     trBody.append(tdName,tdWorked);
     return trBody;
@@ -207,6 +215,7 @@ function createMonstersTableBody(itemObj) {
     const tdAppearances = document.createElement("td");
     const tdDescription = document.createElement("td");
     tdName.innerText = itemObj.name;
+    tdName.className = "oneLine";
     tdAppearances.innerText = itemObj.appearances;
     tdDescription.innerText = itemObj.description;
     trBody.append(tdName,tdAppearances,tdDescription);
@@ -244,6 +253,7 @@ function createBossesTableBody(itemObj) {
     const tdDescription = document.createElement("td");
     const tdDungeons = document.createElement("td");
     tdName.innerText = itemObj.name;
+    tdName.className = "oneLine";
     tdAppearances.innerText = itemObj.appearances;
     tdDungeons.innerText = itemObj.dungeons;
     tdDescription.innerText = itemObj.description;
@@ -281,6 +291,7 @@ function createDungeonsTableBody(itemObj) {
     const tdAppearances = document.createElement("td");
     const tdDescription = document.createElement("td");
     tdName.innerText = itemObj.name;
+    tdName.className = "oneLine";
     tdAppearances.innerText = itemObj.appearances;
     tdDescription.innerText = itemObj.description;
     trBody.append(tdName,tdAppearances,tdDescription);
@@ -318,6 +329,7 @@ function createPlacesTableBody(itemObj) {
     const tdInhabitants = document.createElement("td");
     const tdDescription = document.createElement("td");
     tdName.innerText = itemObj.name;
+    tdName.className = "oneLine";
     tdAppearances.innerText = itemObj.appearances;
     tdInhabitants.innerText = itemObj.inhabitants;
     tdDescription.innerText = itemObj.description;
@@ -339,7 +351,7 @@ function showPlacesTable(arrayPlaces) {
 }
 
 function createItemsTableHeaders() {
-    const ItemsHeaders = ["name","appearances","games","description"];
+    const ItemsHeaders = ["name","games","description"];
     trHeader = document.createElement("tr");
     ItemsHeaders.forEach(headerObj => {
         const th = document.createElement("th");
@@ -352,14 +364,13 @@ function createItemsTableHeaders() {
 function createItemsTableBody(itemObj) {
     trBody = document.createElement("tr");
     const tdName = document.createElement("td");
-    const tdAppearances = document.createElement("td");
     const tdGames = document.createElement("td");
     const tdDescription = document.createElement("td");
     tdName.innerText = itemObj.name;
-    tdAppearances.innerText = itemObj.appearances;
+    tdName.className = "oneLine";
     tdGames.innerText = itemObj.games;
     tdDescription.innerText = itemObj.description;
-    trBody.append(tdName,tdAppearances,tdGames,tdDescription);
+    trBody.append(tdName,tdGames,tdDescription);
     return trBody;
 }
 

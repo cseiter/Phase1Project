@@ -1,6 +1,4 @@
 table {
-    table-layout: auto;
-    white-space: nowrap;
     border-collapse: collapse;
     border: 2px solid black;
 }
@@ -20,6 +18,14 @@ td {
     border-right: 2px solid black;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
+}
+
+td.oneLine {
+    white-space: nowrap;
+}
+
+#returnedresults {
+    width: 99%;
 }
 
 #loading {
