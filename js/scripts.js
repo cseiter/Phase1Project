@@ -22,13 +22,20 @@ function displayLoading() {
     imgPicker = Math.floor((Math.random() * 6) + 1);
     loadingGif.src = `./images/${imgPicker}.gif`
     loaderDiv.style.display = "block";
-
 }
 
 function hideLoading() {
     const loaderDiv = document.getElementById("loading");
     loaderDiv.style.display = "none";
 }
+
+function showError() {
+    const loaderDiv = document.getElementById("loading");
+    const loadingGif = document.getElementById("loading-gif");
+    loaderDiv.innerHTML = "<h3>I'm sorry, something went wrong.  Please try again.</h3><br><img src=./images/Error.png>"
+    loaderDiv.style.display = "block";
+}
+
 
 function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
