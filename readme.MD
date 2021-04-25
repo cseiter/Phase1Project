@@ -32,7 +32,7 @@ Stretch 7:
 combine each of the separate functions into one and dynamically create tables based on size of search results table.
 
 Stretch 8:
-replace unique key search results with appropriate names of games, places...
+replace unique key search results with appropriate names of games, places... This would also fix formattin on items table since there are no spaces in the one section of data
 
 Stretch 9:
 try to get count totals to start doing data mining and charts.
