@@ -36,39 +36,46 @@ function showError() {
     loaderDiv.style.display = "block";
 }
 
+function enableButton() {
+    /* thanks to my son for spamming the button to
+    see all the gifs, which then duplicated the table
+    headers and pointing out I needed this feature*/
+    document.getElementById("btnResults").disabled = false;
+}
 
 function getGroup(e) {
     const selectedGroup = (document.getElementById("type-dropdown").value).toLowerCase();
     document.getElementById("table-header").innerText = ""
     document.getElementById("table-results").innerText = ""
     if(selectedGroup == "games") {
-        getResults(selectedGroup,100).then(showGamesTable);
+        getResults(selectedGroup,100).then(showGamesTable).then(enableButton);
     }
     else if (selectedGroup == "characters") {
-        getResults(selectedGroup,100).then(showCharactersTable);
+        getResults(selectedGroup,100).then(showCharactersTable).then(enableButton);
     }
     else if (selectedGroup == "staff") {
-        getResults(selectedGroup,100).then(showStaffTable);
+        getResults(selectedGroup,100).then(showStaffTable).then(enableButton);
     }
     else if (selectedGroup == "monsters") {
-        getResults(selectedGroup,100).then(showMonstersTable);
+        getResults(selectedGroup,100).then(showMonstersTable).then(enableButton);
     }
     else if (selectedGroup == "bosses") {
-        getResults(selectedGroup,100).then(showBossesTable);
+        getResults(selectedGroup,100).then(showBossesTable).then(enableButton);
     }
     else if (selectedGroup == "dungeons") {
-        getResults(selectedGroup,100).then(showDungeonsTable);
+        getResults(selectedGroup,100).then(showDungeonsTable).then(enableButton);
     }
     else if (selectedGroup == "places") {
-        getResults(selectedGroup,100).then(showPlacesTable);
+        getResults(selectedGroup,100).then(showPlacesTable).then(enableButton);
     }
     else if (selectedGroup == "items") {
-        getResults(selectedGroup,100).then(showItemsTable);
+        getResults(selectedGroup,100).then(showItemsTable).then(enableButton);
     }
     else {console.log("no search")}
 }
 
 function getResults(type,limit) {
+    document.getElementById("btnResults").disabled = true;
     const builtURL = `${proxyURL}${rootURL}${type}?limit=${limit}`;
     displayLoading();
     return fetch(builtURL)
